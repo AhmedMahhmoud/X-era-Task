@@ -1,0 +1,1 @@
+enum MoviePage { discover, search }
