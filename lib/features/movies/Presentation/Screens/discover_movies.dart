@@ -22,7 +22,7 @@ class DiscoverMoviesPage extends StatelessWidget {
           return displayErrorWidget(
             errorMsg: state.message,
             callback: () {
-              addMoviesEvent(context);
+              addMoviesEvent(context); //?So we can refresh when we have network connection back
             },
           );
         } else if (state is MoviesDiscoverLoadedState) {

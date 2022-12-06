@@ -1,20 +1,16 @@
-import 'dart:developer';
-
 import 'package:sembast/sembast.dart';
+import 'package:xera_task/Services/Database/Movies/movies_db_abstract.dart';
 
 import '../../../Core/Constants/constants.dart';
 import '../sembast.dart';
 
-class MoviesDao {
+class MoviesDao implements MoviesDbAbstract {
   final _userStore = intMapStoreFactory.store(Constants.MoviesDBName);
   Future<Database> get _db async => await AppDatabase.instance.database;
   var store = StoreRef.main();
-  Future insertMovies(String movieName) async {
-    await _userStore.add(await _db, {"name": movieName});
-    log("movie added successfully");
-  }
 
-  Future<List<String>> getMovieNames() async {
+  @override
+  Future<List<String>> getCachedMovies() async {
     List<String> cachedMovies = [];
     var moviesSnapshots = await _userStore.find(await _db);
     moviesSnapshots = moviesSnapshots.reversed.toList();
@@ -27,5 +23,10 @@ class MoviesDao {
       cachedMovies.add(moviesSnapshots[i].value.values.first.toString());
     }
     return cachedMovies;
+  }
+
+  @override
+  Future insertMovieName(String movieName) async {
+    await _userStore.add(await _db, {"name": movieName});
   }
 }

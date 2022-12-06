@@ -3,6 +3,7 @@ import 'package:xera_task/Core/Shared/FaliureWidgets/server_failure.dart';
 
 import '../../Constants/constants.dart';
 import '../../Failure/exceptions.dart';
+import '../../Failure/failures.dart';
 import 'no_internet.dart';
 
 displayErrorWidget({required String errorMsg, required VoidCallback callback}) {
@@ -24,3 +25,14 @@ displayErrorWidget({required String errorMsg, required VoidCallback callback}) {
       );
   }
 }
+  String mapFailureToMessage(Failure failure) {
+    switch (failure.runtimeType) {
+      case ServerFailure:
+        return SERVER_FAILURE_MESSAGE;
+
+      case OfflineFailure:
+        return OFFLINE_FAILURE_MESSAGE;
+      default:
+        return failure.props.toString();
+    }
+  }

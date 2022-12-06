@@ -24,3 +24,15 @@ class SearchMovieErrorState extends SearchMoviesState {
   @override
   List<Object> get props => [message];
 }
+
+class SearchMoviePaginatedLoadingState extends SearchMoviesState {}
+
+class SearchMoviePaginatedLoadedState extends SearchMoviesState {}
+
+class SearchMoviePaginatedErrorState extends SearchMoviesState {
+  final String message;
+  const SearchMoviePaginatedErrorState({required this.message});
+   @override
+  List<Object> get props => [message];
+
+}

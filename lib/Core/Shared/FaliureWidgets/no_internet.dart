@@ -7,14 +7,15 @@ import '../../Constants/constants.dart';
 import '../Buttons/rounded_button.dart';
 
 class NoInternetDisplay extends StatelessWidget {
-  final VoidCallback ontapCall;
   const NoInternetDisplay({required this.ontapCall, super.key});
+
+  final VoidCallback ontapCall;
 
   @override
   Widget build(BuildContext context) {
     return Expanded(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           AutoSizeText(
             OFFLINE_FAILURE_MESSAGE,

@@ -37,8 +37,8 @@ class MoviesRepoImp implements MoviesRepository {
       try {
         List<Movies> moviesList =
             await remoteDataSrc.searchMoviesByName(movieName, pageIndex);
-        if (moviesList.isNotEmpty) {
-          moviesDao.insertMovies(movieName);
+        if (moviesList.isNotEmpty && pageIndex == 1) {
+          moviesDao.insertMovieName(movieName);
         }
         return Right(moviesList);
       } on ServerException {

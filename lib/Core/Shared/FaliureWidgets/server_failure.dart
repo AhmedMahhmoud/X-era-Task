@@ -16,6 +16,7 @@ class ServerFailureDisplay extends StatelessWidget {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           AutoSizeText(
             SERVER_FAILURE_MESSAGE,

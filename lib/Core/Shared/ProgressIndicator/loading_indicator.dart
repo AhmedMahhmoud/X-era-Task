@@ -7,7 +7,7 @@ class AdaptiveProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Center(
-        child: CircularProgressIndicator.adaptive(
+        child: CircularProgressIndicator.adaptive( //?Adaptive so we can display indicator for Ios and Android
       backgroundColor: CustomColors.whiteColor,
     ));
   }

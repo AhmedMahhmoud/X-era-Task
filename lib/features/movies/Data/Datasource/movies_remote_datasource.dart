@@ -18,7 +18,7 @@ class MoviesRemoteDataSourceImp implements MoviesRemoteDataSource {
     const url =
         "${Constants.baseUrl}discover/movie?api_key=${Constants.apiKey}";
     final response = await http.get(Uri.parse(url));
-    log(response.body);
+
     return mapResponseToMoviesList(response);
   }
 
@@ -27,7 +27,7 @@ class MoviesRemoteDataSourceImp implements MoviesRemoteDataSource {
     final url =
         "${Constants.baseUrl}search/movie?api_key=${Constants.apiKey}&query=$name&page=$pageNumber";
     final response = await http.get(Uri.parse(url));
-    log(response.body);
+
     return mapResponseToMoviesList(response);
   }
 
