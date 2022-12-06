@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:xera_task/Core/Colors/app_colors.dart';
-import '../../../../Core/Extenstions/movies_pages_extenstion.dart';
-import '../cubit/taps/taps_cubit.dart';
+import '../../../../../Core/Extenstions/movies_pages_extenstion.dart';
+import '../../cubit/taps/taps_cubit.dart';
 
 class DisplayTaps extends StatelessWidget {
   const DisplayTaps({

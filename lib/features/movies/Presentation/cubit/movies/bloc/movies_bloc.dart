@@ -30,7 +30,7 @@ class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
       case OfflineFailure:
         return OFFLINE_FAILURE_MESSAGE;
       default:
-        return "Unexpected Error , Please try again later .";
+        return failure.props.toString();
     }
   }
 }
