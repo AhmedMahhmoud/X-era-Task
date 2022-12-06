@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:xera_task/Core/Failure/exceptions.dart';
 import 'package:xera_task/features/movies/Data/Model/movies_model.dart';
 import 'package:http/http.dart' as http;
@@ -13,11 +11,12 @@ abstract class MoviesRemoteDataSource {
 }
 
 class MoviesRemoteDataSourceImp implements MoviesRemoteDataSource {
+  var header = {'Authorization': "Bearer ${Constants.accessToken}"};
   @override
   Future<List<Movies>> getDiscoveredMovies() async {
     const url =
         "${Constants.baseUrl}discover/movie?api_key=${Constants.apiKey}";
-    final response = await http.get(Uri.parse(url));
+    final response = await http.get(Uri.parse(url), headers: header);
 
     return mapResponseToMoviesList(response);
   }
@@ -26,7 +25,7 @@ class MoviesRemoteDataSourceImp implements MoviesRemoteDataSource {
   Future<List<Movies>> searchMoviesByName(String name, int pageNumber) async {
     final url =
         "${Constants.baseUrl}search/movie?api_key=${Constants.apiKey}&query=$name&page=$pageNumber";
-    final response = await http.get(Uri.parse(url));
+    final response = await http.get(Uri.parse(url), headers: header);
 
     return mapResponseToMoviesList(response);
   }

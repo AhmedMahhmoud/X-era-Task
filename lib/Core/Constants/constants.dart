@@ -7,6 +7,8 @@ class Constants {
   static const String imagesUrl = "https://image.tmdb.org/t/p/w500";
   static const String apiKey = "dc8c6ae585c2496b758c84803cd3868e";
   static const String baseUrl = "https://api.themoviedb.org/3/";
+  static const String accessToken =
+      "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkYzhjNmFlNTg1YzI0OTZiNzU4Yzg0ODAzY2QzODY4ZSIsInN1YiI6IjVmOTk4OWJiNmMxZTA0MDAzNmUxMGU3NCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.lJOmlROFNc3w3ONuvkHpQN-lZpamE8_HJew5_fh6AE4";
   static const TextStyle boldStyle =
       TextStyle(fontWeight: FontWeight.bold, fontSize: 16);
   static final kSearchTextFieldDecoration = InputDecoration(

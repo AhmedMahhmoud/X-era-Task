@@ -13,7 +13,7 @@ class SearchMoviesBloc extends Bloc<SearchMoviesEvent, SearchMoviesState> {
   final SearchMovieByNameUsecase searchMovieUsecase;
   List<MoviesEntity> movies = [];
   SearchMoviesBloc({required this.searchMovieUsecase})
-      : super(MoviesInitial()) {
+      : super(SearchMoviesInitial()) {
     on<SearchMoviesEvent>((event, emit) async {
       if (event is SearchMoviesByName) {
         emit(SearchMovieLoadingState());
@@ -36,7 +36,7 @@ class SearchMoviesBloc extends Bloc<SearchMoviesEvent, SearchMoviesState> {
           movies.addAll(moviesList);
         });
       } else if (event is ResetMovies) {
-        emit(MoviesInitial());
+        emit(SearchMoviesInitial());
       }
     });
   }
