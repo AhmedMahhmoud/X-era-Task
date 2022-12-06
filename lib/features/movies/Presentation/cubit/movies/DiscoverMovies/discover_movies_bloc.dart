@@ -5,14 +5,16 @@ import 'package:xera_task/features/movies/Domain/Usecases/discovered_movies_usec
 import '../../../../../../Core/Failure/exceptions.dart';
 import '../../../../../../Core/Failure/failures.dart';
 import '../../../../Domain/Entities/movies_entity.dart';
-part 'movies_event.dart';
-part 'movies_state.dart';
+part 'discover_movies_event.dart';
+part 'discover_movies_state.dart';
 
-class MoviesBloc extends Bloc<MoviesEvent, MoviesState> {
+class DiscoverMoviesBloc
+    extends Bloc<DiscoveredMoviesEvent, DiscoveredMoviesState> {
   final GetDiscoveredMoviesUsecase discoverUsecase;
-
-  MoviesBloc({required this.discoverUsecase}) : super(MoviesInitial()) {
-    on<MoviesEvent>((event, emit) async {
+  DiscoverMoviesBloc({
+    required this.discoverUsecase,
+  }) : super(MoviesInitial()) {
+    on<DiscoveredMoviesEvent>((event, emit) async {
       if (event is GetAllDiscoveredMovies) {
         emit(MoviesDiscoverLoadingState());
         final failOrSuccessMovie = await discoverUsecase();

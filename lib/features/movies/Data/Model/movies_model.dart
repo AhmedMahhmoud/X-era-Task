@@ -16,7 +16,7 @@ class Movies extends MoviesEntity {
     return Movies(
         overview: json['overview'],
         posterImage: "${Constants.imagesUrl}${json['backdrop_path']}",
-        releaseDate: json['release_date'],
+        releaseDate: json['release_date'] ?? "",
         title: json['title']);
   }
 

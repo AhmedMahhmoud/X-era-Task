@@ -9,7 +9,7 @@ import '../../../../Core/Constants/constants.dart';
 abstract class MoviesRemoteDataSource {
   //? So we can change later from json to xml easily ..
   Future<List<Movies>> getDiscoveredMovies();
-  Future<List<Movies>> searchMoviesByName(String name);
+  Future<List<Movies>> searchMoviesByName(String name, int pageNumber);
 }
 
 class MoviesRemoteDataSourceImp implements MoviesRemoteDataSource {
@@ -19,6 +19,19 @@ class MoviesRemoteDataSourceImp implements MoviesRemoteDataSource {
         "${Constants.baseUrl}discover/movie?api_key=${Constants.apiKey}";
     final response = await http.get(Uri.parse(url));
     log(response.body);
+    return mapResponseToMoviesList(response);
+  }
+
+  @override
+  Future<List<Movies>> searchMoviesByName(String name, int pageNumber) async {
+    final url =
+        "${Constants.baseUrl}search/movie?api_key=${Constants.apiKey}&query=$name&page=$pageNumber";
+    final response = await http.get(Uri.parse(url));
+    log(response.body);
+    return mapResponseToMoviesList(response);
+  }
+
+  List<Movies> mapResponseToMoviesList(response) {
     if (response.statusCode == 200) {
       final List decodedJson = json.decode(response.body)['results'] as List;
       final List<Movies> moviesList =
@@ -27,10 +40,5 @@ class MoviesRemoteDataSourceImp implements MoviesRemoteDataSource {
     } else {
       throw ServerException();
     }
-  }
-
-  @override
-  Future<List<Movies>> searchMoviesByName(String name) {
-    throw UnimplementedError();
   }
 }

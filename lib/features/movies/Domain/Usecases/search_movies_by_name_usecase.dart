@@ -6,7 +6,8 @@ import 'package:xera_task/features/movies/Domain/Repositories/movies_repository.
 class SearchMovieByNameUsecase {
   final MoviesRepository moviesRepository;
   SearchMovieByNameUsecase(this.moviesRepository);
-  Future<Either<Failure, List<MoviesEntity>>> call(String movieName) async {
-    return await moviesRepository.searchMoviesByName(movieName);
+  Future<Either<Failure, List<MoviesEntity>>> call(
+      String movieName, int pageIndex) async {
+    return await moviesRepository.searchMoviesByName(movieName, pageIndex);
   }
 }

@@ -7,9 +7,9 @@ import 'package:animate_do/animate_do.dart';
 import 'movie_poster.dart';
 import 'movies_details.dart';
 
-class DiscoveredMoviesList extends StatelessWidget {
+class DisplayMoviesList extends StatelessWidget {
   final List<MoviesEntity> movies;
-  const DiscoveredMoviesList({
+  const DisplayMoviesList({
     required this.movies,
     Key? key,
   }) : super(key: key);

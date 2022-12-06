@@ -5,5 +5,5 @@ import 'package:xera_task/features/movies/Domain/Entities/movies_entity.dart';
 abstract class MoviesRepository {
   Future<Either<Failure, List<MoviesEntity>>> getDiscoveredMovies();
   Future<Either<Failure, List<MoviesEntity>>> searchMoviesByName(
-      String movieName);
+      String movieName, int pageNumber);
 }
